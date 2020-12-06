@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import ChildComponent from "./child.js";
+import TimerComponent from "./timer";
 
 function App() {
   const text = "인프런 수강생 여러분 화이팅!";
@@ -16,6 +17,7 @@ function App() {
       <h2>{text}</h2>
       {sayHello()}
       <div onClick={sayHello2}>클릭해주세요</div>
+      <TimerComponent />
       <ChildComponent name="그랩" age={27} />
       <ChildComponent name="민수" age={25} />
       <ChildComponent name="철수" age={30} />
