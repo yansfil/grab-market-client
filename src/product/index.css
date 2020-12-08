@@ -1,0 +1,52 @@
+#image-box {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#image-box > img {
+  height: 100%;
+}
+
+#profile-box {
+  padding: 16px;
+  margin-top: 8px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+}
+
+#profile-box > img {
+  width: 50px;
+  height: 50px;
+}
+
+#profile-box > span {
+  font-size: 15px;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+#contents-box {
+  padding: 16px;
+}
+
+#name {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#price {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#createdAt {
+  font-size: 12px;
+  color: rgb(204, 204, 204);
+}
+
+#description {
+  margin-top: 16px;
+}
