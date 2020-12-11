@@ -2,11 +2,22 @@ import { Form, Divider, Input, InputNumber, Button, Upload } from "antd";
 import "./index.css";
 import { ForkOutlined } from "@ant-design/icons";
 import { useState } from "react";
-
+import { API_URL } from "../config/constants";
+import axios from "axios";
 function UploadPage() {
   const [imageUrl, setImageUrl] = useState(null);
   const onSubmit = (values) => {
-    console.log(values);
+    axios
+      .post(`${API_URL}/products`, {
+        name: values.name,
+        description: values.description,
+        seller: values.seller,
+        price: parseInt(values.price),
+        imageUrl: imageUrl,
+      })
+      .then((result) => {
+        console.log(result);
+      });
   };
   const onChangeImage = (info) => {
     if (info.file.status === "uploading") {
@@ -27,13 +38,13 @@ function UploadPage() {
         >
           <Upload
             name="image"
-            action="http://localhost:8080/image"
+            action={`${API_URL}/image`}
             listType="picture"
             showUploadList={false}
             onChange={onChangeImage}
           >
             {imageUrl ? (
-              <img id="upload-img" src={`http://localhost:8080/${imageUrl}`} />
+              <img id="upload-img" src={`${API_URL}/${imageUrl}`} />
             ) : (
               <div id="upload-img-placeholder">
                 <img src="/images/icons/camera.png" />
@@ -90,7 +101,7 @@ function UploadPage() {
         </Form.Item>
         <Form.Item>
           <Button id="submit-button" size="large" htmlType="submit">
-            문제 등록하기
+            상품 등록하기
           </Button>
         </Form.Item>
       </Form>

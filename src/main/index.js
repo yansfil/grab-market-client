@@ -4,14 +4,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-
+import { API_URL } from "../config/constants.js";
 dayjs.extend(relativeTime);
 
 function MainPage() {
   const [products, setProducts] = React.useState([]);
   React.useEffect(function () {
     axios
-      .get("http://localhost:8080/products")
+      .get(`${API_URL}/products`)
       .then(function (result) {
         const products = result.data.products;
         setProducts(products);
