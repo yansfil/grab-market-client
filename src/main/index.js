@@ -52,6 +52,7 @@ function MainPage() {
         {products.map(function (product, index) {
           return (
             <div className="product-card">
+              {product.soldout === 1 && <div className="product-blur" />}
               <Link
                 style={{ color: "inherit" }}
                 className="product-link"
