@@ -58,3 +58,7 @@
   margin-top: 8px;
   margin-bottom: 16px;
 }
+
+#description-box {
+  min-height: 150px;
+}
