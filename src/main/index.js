@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { API_URL } from "../config/constants.js";
-import { Carousel } from "antd";
+import { Carousel, Spin } from "antd";
 import "dayjs/locale/ko";
 import ProductCard from "../components/productCard";
 
@@ -36,6 +36,13 @@ function MainPage() {
         console.error("에러 발생 : ", error);
       });
   }, []);
+  if (products.length === 0) {
+    return (
+      <div style={{ textAlign: "center", paddingTop: 32 }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
 
   return (
     <div>

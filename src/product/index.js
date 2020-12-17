@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import { API_URL } from "../config/constants";
 import dayjs from "dayjs";
-import { Button, message } from "antd";
+import { Button, message, Spin } from "antd";
 import ProductCard from "../components/productCard";
 
 function ProductPage() {
@@ -38,7 +38,11 @@ function ProductPage() {
   }, [id]);
 
   if (product === null) {
-    return <h1>상품 정보를 받고 있습니다...</h1>;
+    return (
+      <div style={{ textAlign: "center", paddingTop: 32 }}>
+        <Spin size="large" />
+      </div>
+    );
   }
 
   const onClickPurchase = () => {
